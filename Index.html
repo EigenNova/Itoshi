@@ -277,7 +277,7 @@
         <p>Every moment with you is a treasure.</p>
         <div class="gallery-grid">
             <!-- Replace these sources with your actual image URLs -->
-            <div class="photo-card"><img src="img 1.jpg"" alt="Memory 1"></div>
+            <div class="photo-card"><img src="img 1.jpg" alt="Memory 1"></div>
 	    <div class="photo-card"><img src="img 2.jpg" alt="Memory 2"></div>
 	    <div class="photo-card"><img src="img 3.jpg" alt="Memory 3"></div>
 	    <div class="photo-card"><img src="img 4.jpg" alt="Memory 4"></div>
@@ -412,17 +412,28 @@
             const btn = document.getElementById('noBtn');
             const phrases = [
                 "No 😢", "Babe?", "Really?", "Thats mean",
-                "Why are you being mean? 💔", "Please? 🥺", "Me must rubbish asting",
-                "You can't say no!", "Head blo you sa strong eh", "But I love you! ❤️"
+                "Meany 💔", "Please? 🥺", "Oi Babe",
+                "You can't say no!", "Strongla Head", "But I love you! ❤️"
             ];
 
             // Move button
-            const x = Math.random() * (window.innerWidth - 200);
-            const y = Math.random() * (window.innerHeight - 100);
+            const container = document.querySelector('.proposal-btns');
+const rect = container.getBoundingClientRect();
 
-            btn.style.position = 'fixed';
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
+const btnWidth = btn.offsetWidth;
+const btnHeight = btn.offsetHeight;
+
+const maxX = rect.width - btnWidth;
+const maxY = rect.height - btnHeight;
+
+const x = Math.random() * maxX;
+const y = Math.random() * maxY;
+
+btn.style.position = 'absolute';
+btn.style.left = x + 'px';
+btn.style.top = y + 'px';
+
+
 
             // Change text
             btn.innerText = phrases[dodgeCount % phrases.length];
